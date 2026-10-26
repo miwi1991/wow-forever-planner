@@ -52,13 +52,13 @@ spieler.forEach(name => {
 function erstelleAuswahl() {
 
     let html = `
-        <select>
-            <option>-- wählen --</option>
+        <select onchange="klasseGewählt(this)">
+            <option value="">-- wählen --</option>
     `;
 
-Object.keys(klassen).forEach(klasse => {
+    Object.keys(klassen).forEach(klasse => {
         html += `
-            <option>${klasse}</option>
+            <option value="${klasse}">${klasse}</option>
         `;
     });
 
@@ -67,4 +67,19 @@ Object.keys(klassen).forEach(klasse => {
     `;
 
     return html;
+}
+
+
+function klasseGewählt(select) {
+
+    const karte = select.closest(".player");
+    const klasse = select.value;
+
+    if (klasse === "") {
+        karte.style.borderColor = "#444";
+        return;
+    }
+
+    karte.style.borderColor = klassen[klasse];
+    karte.style.boxShadow = `0 0 15px ${klassen[klasse]}`;
 }
