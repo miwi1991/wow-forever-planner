@@ -6,17 +6,17 @@ const spieler = [
     "Michi"
 ];
 
-const klassen = [
-    "Krieger",
-    "Paladin",
-    "Jäger",
-    "Schurke",
-    "Priester",
-    "Schamane",
-    "Magier",
-    "Hexenmeister",
-    "Druide"
-];
+const klassen = {
+    "Krieger": "#C69B6D",
+    "Paladin": "#F48CBA",
+    "Jäger": "#AAD372",
+    "Schurke": "#FFF468",
+    "Priester": "#FFFFFF",
+    "Schamane": "#0070DD",
+    "Magier": "#3FC7EB",
+    "Hexenmeister": "#8788EE",
+    "Druide": "#FF7C0A"
+};
 
 
 const container = document.getElementById("spieler-container");
