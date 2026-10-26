@@ -56,7 +56,7 @@ function erstelleAuswahl() {
             <option>-- wählen --</option>
     `;
 
-    klassen.forEach(klasse => {
+Object.keys(klassen).forEach(klasse => {
         html += `
             <option>${klasse}</option>
         `;
