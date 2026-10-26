@@ -30,18 +30,18 @@ spieler.forEach(name => {
     karte.innerHTML = `
         <h3>${name}</h3>
 
-        Wunschklasse 1:
-        ${erstelleAuswahl()}
+Wunschklasse 1:
+${erstelleAuswahl("haupt")}
 
-        <br><br>
+<br><br>
 
-        Wunschklasse 2:
-        ${erstelleAuswahl()}
+Wunschklasse 2:
+${erstelleAuswahl("optional")}
 
-        <br><br>
+<br><br>
 
-        Wunschklasse 3:
-        ${erstelleAuswahl()}
+Wunschklasse 3:
+${erstelleAuswahl("optional")}
     `;
 
     container.appendChild(karte);
@@ -49,10 +49,10 @@ spieler.forEach(name => {
 });
 
 
-function erstelleAuswahl() {
+function erstelleAuswahl(typ) {
 
     let html = `
-        <select onchange="klasseGewählt(this)">
+<select onchange="klasseGewählt(this)" data-typ="${typ}">
             <option value="">-- wählen --</option>
     `;
 
@@ -73,10 +73,16 @@ function erstelleAuswahl() {
 function klasseGewählt(select) {
 
     const karte = select.closest(".player");
+
+    if (select.dataset.typ !== "haupt") {
+        return;
+    }
+
     const klasse = select.value;
 
     if (klasse === "") {
         karte.style.borderColor = "#444";
+        karte.style.boxShadow = "none";
         return;
     }
 
